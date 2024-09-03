@@ -15,7 +15,7 @@ public class Contacto {
     private String ciudad;
     private String direccion;
 
-    public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
+    public Contacto(String nombre, String apellido, String ciudad, String direccion, String calle_Falsa_123) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;

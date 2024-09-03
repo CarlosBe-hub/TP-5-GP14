@@ -14,7 +14,7 @@ import java.util.HashSet;
  * @author aguse
  */
 public class Directorio {
-    private  TreeMap<Long, Contacto> contactos;
+    private final  TreeMap<Long, Contacto> contactos;
 
     public Directorio() {
         contactos = new TreeMap<>();
