@@ -15,12 +15,14 @@ public class Contacto {
     private String ciudad;
     private String direccion;
 
-    public Contacto(String nombre, String apellido, String ciudad, String direccion, String calle_Falsa_123) {
+
+    public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
+
     }
 
     public int getDni() {
@@ -61,6 +63,12 @@ public class Contacto {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+
+    @Override
+    public String toString() {
+        return "DNI="+dni +", NOMBRE="+nombre +", APELLIDO="+apellido+", CIUDAD="+ciudad +", DIRECCION="+direccion;
     }
     
     

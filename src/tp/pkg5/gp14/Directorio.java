@@ -5,9 +5,11 @@
 package tp.pkg5.gp14;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.HashSet;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 /**
  *
@@ -34,7 +36,6 @@ public class Directorio {
     
     public Set<Long> buscarTelefono(String apellido){
        Set<Long> numeros = new HashSet<>();
-        
         for(Long telefono : contactos.keySet()){
             if(contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
                 numeros.add(telefono);
