@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
-import java.util.TreeSet;
 
 /**
  *
@@ -33,29 +32,39 @@ public class Directorio {
         return contactos.get(telefono);
         
     }
-    
     public Set<Long> buscarTelefono(String apellido){
        Set<Long> numeros = new HashSet<>();
-        for(Long telefono : contactos.keySet()){
-            if(contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
-                numeros.add(telefono);
-        }
-        return numeros;
+       Iterator<Long> iterator = contactos.keySet().iterator();
+
+       while(iterator.hasNext()){
+       Long telefono = iterator.next();
+       if(contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
+           numeros.add(telefono);
+       }
+       return numeros;
     }
 
-    
+
     public ArrayList<Contacto> buscarContactos(String ciudad){
         ArrayList<Contacto> listaContactos = new ArrayList<>();
-        
-        for(Contacto contacto : contactos.values()){
+        Iterator<Contacto> iterator = contactos.values().iterator();
+        while(iterator.hasNext()    ){
+        Contacto contacto = iterator.next();
             if(contacto.getCiudad().equalsIgnoreCase(ciudad))
                 listaContactos.add(contacto);
         }
         return listaContactos;
-    
-    }
-    
+        }
+
+
     public void borrarContacto(Long telefono){
+
         contactos.remove(telefono);
     }
-}
+
+    }
+
+    
+    
+    
+    

@@ -4,6 +4,9 @@
  */
 package tp.pkg5.gp14;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 /**
  *
  * @author carlo
@@ -16,24 +19,40 @@ public class TP5GP14 {
     public static void main(String[] args) {
         Directorio directorio = new Directorio();
 
-        
-        directorio.agregarContacto(1234567890L, new Contacto(123, "Juan", "Perez", "Madrid", "Calle Falsa 123"));
-        directorio.agregarContacto(9876543210L, new Contacto(456, "Ana", "Gómez", "Barcelona", "Avenida Siempre Viva 742"));
-        directorio.agregarContacto(1928374650L, new Contacto(789, "Luis", "Suarez", "Sanluis", "Plaza Mayor 1"));
-        directorio.agregarContacto(5647382910L, new Contacto(852, "María", "Lopez", "Valencia", "Calle del Sol 5"));
+       
+        directorio.agregarContacto(2665111683L, new Contacto(123, "Juan", "Perez", "Madrid", "Calle Falsa 123"));
+        directorio.agregarContacto(2664003380L, new Contacto(456, "Ana", "Gómez", "Barcelona", "Avenida Siempre Viva 742"));
+        directorio.agregarContacto(2664020595L, new Contacto(789, "Luis", "Suarez", "Madrid", "Plaza Mayor 1"));
+        directorio.agregarContacto(2665147758L, new Contacto(852, "María", "Lopez", "Valencia", "Calle del Sol 5"));
 
         
-        System.out.println("Buscar contacto con telefono 1234567890: " + directorio.buscarContacto(1234567890L));
+        Contacto contacto = directorio.buscarContacto(2665111683L);
+
+        if(contacto != null){
+                System.out.println("Se encontro el siguente contacto: " + contacto.getNombre()+ " " + contacto.getApellido());
+            }else{
+                System.out.println("No se encontro el contacto ingresado..");
+            }
 
         
-        System.out.println("Telefonos de Suarez: " + directorio.buscarTelefono("Suarez"));
+        Set<Long> telefonos =directorio.buscarTelefono("Lopez");
+
+        System.out.println("Se encontro el siguiente telefono asociado al apellido Lopez: " + telefonos);
+
 
         
-        System.out.println("Contactos en Sanluis: " + directorio.buscarContactos("Sanluis"));
+        ArrayList<Contacto> contactoCiudad = directorio.buscarContactos("Madrid");
+        System.out.println("Contactos en Madrid");
+
+        for(Contacto contactos : contactoCiudad){
+            System.out.println(contactos.getNombre() + " " + contactos.getApellido());
+        }
 
         
-        directorio.borrarContacto(1234567890L);
-        System.out.println("Despues de borrar, contacto con telefono 1234567890: " + directorio.buscarContacto(1234567890L));
+        directorio.borrarContacto(2665147758L);
+
+        System.out.println("el contacto se elimino con exito!");
+
     }
 } 
     
