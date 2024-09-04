@@ -40,7 +40,7 @@ private Directorio d = new Directorio();
         jTFapellido = new javax.swing.JTextField();
         jTFdireccion = new javax.swing.JTextField();
         jTFciudad = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTFtelefono = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -76,9 +76,14 @@ private Directorio d = new Directorio();
         jLabel6.setForeground(new java.awt.Color(0, 255, 255));
         jLabel6.setText("Ciudad:");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Buscar");
+        jbBuscar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jbBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        jbBuscar.setText("Buscar");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 255, 255));
@@ -121,7 +126,7 @@ private Directorio d = new Directorio();
         escritorio.setLayer(jTFapellido, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jTFdireccion, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jTFciudad, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jbBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jTFtelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -170,7 +175,7 @@ private Directorio d = new Directorio();
                                 .addComponent(jButton4)
                                 .addGap(71, 71, 71)))
                         .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1)
+                            .addComponent(jbBuscar)
                             .addComponent(jButton5))
                         .addGap(60, 60, 60))
                     .addGroup(escritorioLayout.createSequentialGroup()
@@ -201,7 +206,7 @@ private Directorio d = new Directorio();
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTFdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jbBuscar))
                 .addGap(48, 48, 48)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -280,6 +285,10 @@ private Directorio d = new Directorio();
         jTFtelefono.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,7 +327,6 @@ private Directorio d = new Directorio();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -337,5 +345,6 @@ private Directorio d = new Directorio();
     private javax.swing.JTextField jTFdni;
     private javax.swing.JTextField jTFnombre;
     private javax.swing.JTextField jTFtelefono;
+    private javax.swing.JButton jbBuscar;
     // End of variables declaration//GEN-END:variables
 }
