@@ -19,7 +19,7 @@ public class TP5GP14 {
     public static void main(String[] args) {
         Directorio directorio = new Directorio();
 
-       
+       // se crean los siguientes contactos con la informacion dada
         directorio.agregarContacto(2665111683L, new Contacto(123, "Juan", "Perez", "Madrid", "Calle Falsa 123"));
         directorio.agregarContacto(2664003380L, new Contacto(456, "Ana", "Gómez", "Barcelona", "Avenida Siempre Viva 742"));
         directorio.agregarContacto(2664020595L, new Contacto(789, "Luis", "Suarez", "Madrid", "Plaza Mayor 1"));

@@ -5,6 +5,7 @@
 package JFrame;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import tp.pkg5.gp14.Contacto;
 import tp.pkg5.gp14.Directorio;
 
@@ -43,17 +44,17 @@ private Directorio d = new Directorio();
         jbBuscar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jTFtelefono = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jBnew = new javax.swing.JButton();
+        jBsave = new javax.swing.JButton();
+        jBdelete = new javax.swing.JButton();
+        jBexit = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel1.setText("Formulario de Contacto");
+        jLabel1.setText("Formulario de Contactos");
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -89,31 +90,36 @@ private Directorio d = new Directorio();
         jLabel7.setForeground(new java.awt.Color(0, 255, 255));
         jLabel7.setText("Telefono:");
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Nuevo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBnew.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jBnew.setForeground(new java.awt.Color(0, 0, 0));
+        jBnew.setText("Nuevo");
+        jBnew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBnewActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("Guardar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBsave.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jBsave.setForeground(new java.awt.Color(0, 0, 0));
+        jBsave.setText("Guardar");
+        jBsave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBsaveActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Borrar");
+        jBdelete.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jBdelete.setForeground(new java.awt.Color(0, 0, 0));
+        jBdelete.setText("Borrar");
 
-        jButton5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Salir");
+        jBexit.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jBexit.setForeground(new java.awt.Color(0, 0, 0));
+        jBexit.setText("Salir");
+        jBexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBexitActionPerformed(evt);
+            }
+        });
 
         escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -129,20 +135,16 @@ private Directorio d = new Directorio();
         escritorio.setLayer(jbBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jTFtelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        escritorio.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jBnew, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jBsave, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jBdelete, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(jBexit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         escritorio.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,7 +152,7 @@ private Directorio d = new Directorio();
                         .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(escritorioLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                                .addComponent(jButton2)
+                                .addComponent(jBnew)
                                 .addGap(52, 52, 52))
                             .addGroup(escritorioLayout.createSequentialGroup()
                                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,14 +171,12 @@ private Directorio d = new Directorio();
                                     .addComponent(jLabel1))
                                 .addGap(20, 23, Short.MAX_VALUE))
                             .addGroup(escritorioLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jButton3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4)
+                                .addComponent(jBdelete)
                                 .addGap(71, 71, 71)))
                         .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbBuscar)
-                            .addComponent(jButton5))
+                            .addComponent(jBexit))
                         .addGap(60, 60, 60))
                     .addGroup(escritorioLayout.createSequentialGroup()
                         .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,13 +189,19 @@ private Directorio d = new Directorio();
                                 .addGap(18, 18, 18)
                                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(escritorioLayout.createSequentialGroup()
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jTFtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(escritorioLayout.createSequentialGroup()
                                         .addGap(51, 51, 51)
-                                        .addComponent(jTFciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jTFciudad, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(escritorioLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jBsave)
+                                            .addComponent(jTFtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(jLabel5))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,10 +237,10 @@ private Directorio d = new Directorio();
                     .addComponent(jTFtelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jBnew)
+                    .addComponent(jBsave)
+                    .addComponent(jBdelete)
+                    .addComponent(jBexit))
                 .addGap(24, 24, 24))
         );
 
@@ -242,7 +248,7 @@ private Directorio d = new Directorio();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +260,7 @@ private Directorio d = new Directorio();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jBsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsaveActionPerformed
         // TODO add your handling code here:
         try{
         int dni = Integer.parseInt(jTFdni.getText());
@@ -268,13 +274,13 @@ private Directorio d = new Directorio();
         Directorio d = new Directorio();
         d.agregarContacto(numero, c);
          
-        JOptionPane.showMessageDialog(null, "contacto agregado");
+        JOptionPane.showMessageDialog(null, "Se agrego el contacto");
         }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "error: ahi un campo con datos incorrectos");
+            JOptionPane.showMessageDialog(null, "error: Hay un campo sin texto o esta incorrecto!");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jBsaveActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnewActionPerformed
         // TODO add your handling code here:
         
         jTFdni.setText("");
@@ -283,11 +289,22 @@ private Directorio d = new Directorio();
         jTFdireccion.setText("");
         jTFciudad.setText("");
         jTFtelefono.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBnewActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        Tabladecontactos JTabla = new Tabladecontactos();
+        JTabla.setVisible(true);
+        escritorio.add(JTabla);
+        escritorio.moveToFront(JTabla); 
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexitActionPerformed
+        this.setVisible(false);
+       JOptionPane.showMessageDialog(null, "Se cerro Sesión"); 
+       
+    }//GEN-LAST:event_jBexitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -324,13 +341,14 @@ private Directorio d = new Directorio();
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jBdelete;
+    private javax.swing.JButton jBexit;
+    private javax.swing.JButton jBnew;
+    private javax.swing.JButton jBsave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -347,4 +365,14 @@ private Directorio d = new Directorio();
     private javax.swing.JTextField jTFtelefono;
     private javax.swing.JButton jbBuscar;
     // End of variables declaration//GEN-END:variables
+
+    private static class directorio {
+
+        private static Contacto buscarContacto(Long telefono) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        public directorio() {
+        }
+    }
 }
