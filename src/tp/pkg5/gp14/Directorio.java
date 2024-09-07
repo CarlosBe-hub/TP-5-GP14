@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  *
@@ -61,8 +62,35 @@ public class Directorio {
 
         contactos.remove(telefono);
     }
-
+    
+    public Contacto buscarDni(int dni) {
+        for (Contacto c : contactos.values()) {
+            if (c.getDni() == dni) {
+                return c;
+            }
+        }
+        return null;
     }
+    
+    public Contacto buscarNombre(String nombre) {
+    for (Contacto c : contactos.values()) {
+        if (c.getNombre().equalsIgnoreCase(nombre)) {
+            return c;
+        }
+    }
+    return null;
+    }
+    
+    public Long getTelefono(Contacto c) {
+    for (Map.Entry<Long, Contacto> entry : contactos.entrySet()) {
+        if (entry.getValue().equals(c)) {
+            return entry.getKey();
+        }
+    }
+    return null;
+    }
+
+}
 
     
     

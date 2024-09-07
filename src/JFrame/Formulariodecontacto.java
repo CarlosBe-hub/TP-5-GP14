@@ -14,12 +14,14 @@ import tp.pkg5.gp14.Directorio;
  * @author carlo
  */
 public class Formulariodecontacto extends javax.swing.JFrame {
-private Directorio d = new Directorio();
+    private Contacto c;
+    private Directorio d;
     /**
      * Creates new form Directoriotelefono
      */
     public Formulariodecontacto() {
         initComponents();
+        d = new Directorio();
     }
 
     /**
@@ -257,21 +259,20 @@ private Directorio d = new Directorio();
 
     private void jBsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsaveActionPerformed
         // TODO add your handling code here:
-        try{
-        int dni = Integer.parseInt(jTFdni.getText());
-        String nombre = jTFnombre.getText();
-        String apellido = jTFapellido.getText();
-        String direccion = jTFdireccion.getText();
-        String ciudad = jTFciudad.getText();
-        Long numero = Long.parseLong(jTFtelefono.getText());
-        
-        Contacto c = new Contacto(dni, nombre, apellido, ciudad, direccion);
-        Directorio d = new Directorio();
-        d.agregarContacto(numero, c);
-         
-        JOptionPane.showMessageDialog(null, "Se agrego el contacto");
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "error: Hay un campo sin texto o esta incorrecto!");
+        try {
+            int dni = Integer.parseInt(jTFdni.getText());
+            String nombre = jTFnombre.getText();
+            String apellido = jTFapellido.getText();
+            String direccion = jTFdireccion.getText();
+            String ciudad = jTFciudad.getText();
+            Long numero = Long.parseLong(jTFtelefono.getText());
+
+            c = new Contacto(dni, nombre, apellido, ciudad, direccion);
+            d.agregarContacto(numero, c);
+
+            JOptionPane.showMessageDialog(null, "Se agrego el contacto");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Error: Hay un campo sin texto o esta incorrecto!");
         }
     }//GEN-LAST:event_jBsaveActionPerformed
 
@@ -287,12 +288,23 @@ private Directorio d = new Directorio();
     }//GEN-LAST:event_jBnewActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        Tabladecontactos JTabla = new Tabladecontactos();
-        JTabla.setVisible(true);
-        escritorio.add(JTabla);
-        escritorio.moveToFront(JTabla); 
+
+        String busqueda = jTFdni.getText();
+
+    if (!busqueda.isEmpty()) {
+            try {
+                int dni = Integer.parseInt(busqueda);
+                c = d.buscarDni(dni);
+                if (c != null) {
+                    mostrarContacto(c, d);
+                } else {
+                    JOptionPane.showMessageDialog(null, "dni del contacto no encontrado");
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "no puede dehar ca");
+            }
+    }
+    
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexitActionPerformed
@@ -303,6 +315,12 @@ private Directorio d = new Directorio();
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+//        escritorio.removeAll();
+//        escritorio.repaint();
+//        Tabladecontactos JTabla = new Tabladecontactos();
+//        JTabla.setVisible(true);
+//        escritorio.add(JTabla);
+//        escritorio.moveToFront(JTabla); 
 
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -373,13 +391,14 @@ private Directorio d = new Directorio();
     private javax.swing.JButton jbBuscar;
     // End of variables declaration//GEN-END:variables
 
-    private static class directorio {
-
-        private static Contacto buscarContacto(Long telefono) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        public directorio() {
-        }
+    private void mostrarContacto(Contacto c, Directorio d) {
+    jTFnombre.setText(c.getNombre());
+    jTFapellido.setText(c.getApellido());
+    jTFdireccion.setText(c.getDireccion());
+    jTFciudad.setText(c.getCiudad());
+    Long t = d.getTelefono(c);
+    jTFtelefono.setText(String.valueOf(t));
     }
+    
+    
 }
