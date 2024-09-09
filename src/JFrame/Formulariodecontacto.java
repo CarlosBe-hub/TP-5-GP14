@@ -5,7 +5,6 @@
 package JFrame;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import tp.pkg5.gp14.Contacto;
 import tp.pkg5.gp14.Directorio;
 
@@ -192,16 +191,16 @@ public class Formulariodecontacto extends javax.swing.JFrame {
                         .addComponent(jBexit)))
                 .addGap(77, 77, 77))
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
+                .addGap(214, 214, 214)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(45, 45, 45)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTFdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +228,7 @@ public class Formulariodecontacto extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
-        jMenu1.setText("Coctactos");
+        jMenu1.setText("Contactos");
 
         jMenuItem1.setText("jMenuItem1");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -298,10 +297,10 @@ public class Formulariodecontacto extends javax.swing.JFrame {
                 if (c != null) {
                     mostrarContacto(c, d);
                 } else {
-                    JOptionPane.showMessageDialog(null, "dni del contacto no encontrado");
+                    JOptionPane.showMessageDialog(null, "No se encontro el DNI asignado!");
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "no puede dehar ca");
+                JOptionPane.showMessageDialog(null, "Ingrese un numero de DNI valido!");
             }
     }
     
