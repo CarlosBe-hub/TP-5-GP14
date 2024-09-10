@@ -9,8 +9,8 @@ import java.util.Map;
 import java.util.TreeMap;
 import javax.swing.table.DefaultTableModel;
 import tp.pkg5.gp14.Contacto;
-import JFrame.Formulariodecontacto;
-import static JFrame.Formulariodecontacto.contactos;
+import JFrame.Directorioprincipal;
+import static JFrame.Directorioprincipal.contactos;
 
 /**
  *
@@ -20,13 +20,6 @@ public class vistaBusqueda extends javax.swing.JInternalFrame {
     
     private DefaultTableModel modelo = new DefaultTableModel();
     
-    
-     
-   
-    
-    
-
-     
     public vistaBusqueda() {
         initComponents();
         

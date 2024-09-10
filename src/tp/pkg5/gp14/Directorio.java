@@ -4,7 +4,8 @@
  */
 package tp.pkg5.gp14;
 
-import JFrame.Formulariodecontacto;
+import JFrame.Agendadecontactos;
+import JFrame.Directorioprincipal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,26 +29,26 @@ public class Directorio {
         numeros = new TreeSet<>();
     }
     
-    public void agregarContacto(Long telefono, Contacto contacto){
+    public static void agregarContacto(Long telefono, Contacto contacto){
         
-        Formulariodecontacto.contactos.put(telefono, contacto);
+        Directorioprincipal.contactos.put(telefono, contacto);
         
     }
     
     public Contacto buscarContacto(Long telefono){
         
-        return Formulariodecontacto.contactos.get(telefono);
+        return Directorioprincipal.contactos.get(telefono);
         
     }
     
     
     public Set<Long> buscarTelefono(String apellido){
       
-       Iterator<Long> iterator = Formulariodecontacto.contactos.keySet().iterator();
+       Iterator<Long> iterator = Directorioprincipal.contactos.keySet().iterator();
 
        while(iterator.hasNext()){
        Long telefono = iterator.next();
-       if(Formulariodecontacto.contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
+       if(Directorioprincipal.contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
            numeros.add(telefono);
        }
        return numeros;
@@ -55,7 +56,7 @@ public class Directorio {
 
 
     public ArrayList<Contacto> buscarContactos(String ciudad){
-        Iterator<Contacto> iterator = Formulariodecontacto.contactos.values().iterator();
+        Iterator<Contacto> iterator = Directorioprincipal.contactos.values().iterator();
         while(iterator.hasNext()    ){
         Contacto contacto = iterator.next();
             if(contacto.getCiudad().equalsIgnoreCase(ciudad))
@@ -65,13 +66,13 @@ public class Directorio {
         }
 
 
-    public void borrarContacto(Long telefono){
+    public static void borrarContacto(Long telefono){
 
-        Formulariodecontacto.contactos.remove(telefono);
+        Directorioprincipal.contactos.remove(telefono);
     }
     
     public Contacto buscarDni(int dni) {
-        for (Contacto c : Formulariodecontacto.contactos.values()) {
+        for (Contacto c : Directorioprincipal.contactos.values()) {
             if (c.getDni() == dni) {
                 return c;
             }
