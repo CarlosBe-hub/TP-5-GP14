@@ -4,6 +4,8 @@
  */
 package tp.pkg5.gp14;
 
+
+
 /**
  *
  * @author aguse
@@ -15,6 +17,8 @@ public class Contacto {
     private String ciudad;
     private String direccion;
 
+   
+
 
     public Contacto(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
@@ -22,8 +26,14 @@ public class Contacto {
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
+        
 
     }
+
+    public Contacto() {
+        
+    }
+    
 
     public int getDni() {
         return dni;
@@ -36,6 +46,10 @@ public class Contacto {
     public String getNombre() {
         return nombre;
     }
+
+   
+    
+    
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -64,6 +78,9 @@ public class Contacto {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
+  
+    
 
 
     @Override

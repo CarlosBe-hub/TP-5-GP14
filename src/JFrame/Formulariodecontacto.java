@@ -4,7 +4,10 @@
  */
 package JFrame;
 
-import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+import java.util.TreeMap;
+import java.util.TreeSet;
 import tp.pkg5.gp14.Contacto;
 import tp.pkg5.gp14.Directorio;
 
@@ -13,14 +16,21 @@ import tp.pkg5.gp14.Directorio;
  * @author carlo
  */
 public class Formulariodecontacto extends javax.swing.JFrame {
-    private Contacto c;
-    private Directorio d;
-    /**
-     * Creates new form Directoriotelefono
-     */
+    public static TreeMap<Long, Contacto> contactos = new TreeMap<>(); 
+    public static ArrayList<Contacto> listaContactos= new ArrayList<>();
+    public static TreeSet<Long> numeros = new TreeSet<>();
+    
+  
     public Formulariodecontacto() {
         initComponents();
-        d = new Directorio();
+       Directorio contactos = new Directorio();
+        contactos.agregarContacto(2665121153L, new Contacto(15520451, "Jacinto", "Perez", "Caseros 200", "Buenos Aires"));
+        contactos.agregarContacto(2665154584L, new Contacto(27127089, "Pedro", "Mayor", "Av josefa 123", "Mendoza"));
+        contactos.agregarContacto(2664008530L, new Contacto(43551451, "Jose", "Martinez", "Mitre 154", "San Luis"));
+        contactos.agregarContacto(2664454810L, new Contacto(98154251, "Tomas", "Aguirre", "9 Julio", "Misiones"));
+        contactos.agregarContacto(2664550011L, new Contacto(39845123,"Lautaro", "Benitez", "Av Santo Ortiz","San Luis"));
+
+    
     }
 
     /**
@@ -258,68 +268,34 @@ public class Formulariodecontacto extends javax.swing.JFrame {
 
     private void jBsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsaveActionPerformed
         // TODO add your handling code here:
-        try {
-            int dni = Integer.parseInt(jTFdni.getText());
-            String nombre = jTFnombre.getText();
-            String apellido = jTFapellido.getText();
-            String direccion = jTFdireccion.getText();
-            String ciudad = jTFciudad.getText();
-            Long numero = Long.parseLong(jTFtelefono.getText());
-
-            c = new Contacto(dni, nombre, apellido, ciudad, direccion);
-            d.agregarContacto(numero, c);
-
-            JOptionPane.showMessageDialog(null, "Se agrego el contacto");
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Error: Hay un campo sin texto o esta incorrecto!");
-        }
+      
     }//GEN-LAST:event_jBsaveActionPerformed
 
     private void jBnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnewActionPerformed
         // TODO add your handling code here:
         
-        jTFdni.setText("");
-        jTFnombre.setText("");
-        jTFapellido.setText("");
-        jTFdireccion.setText("");
-        jTFciudad.setText("");
-        jTFtelefono.setText("");
+      
     }//GEN-LAST:event_jBnewActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
 
-        String busqueda = jTFdni.getText();
-
-    if (!busqueda.isEmpty()) {
-            try {
-                int dni = Integer.parseInt(busqueda);
-                c = d.buscarDni(dni);
-                if (c != null) {
-                    mostrarContacto(c, d);
-                } else {
-                    JOptionPane.showMessageDialog(null, "No se encontro el DNI asignado!");
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Ingrese un numero de DNI valido!");
-            }
-    }
+      
     
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexitActionPerformed
-        this.setVisible(false);
-       JOptionPane.showMessageDialog(null, "Se cerro Sesión"); 
+      
        
     }//GEN-LAST:event_jBexitActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-//        escritorio.removeAll();
-//        escritorio.repaint();
-//        Tabladecontactos JTabla = new Tabladecontactos();
-//        JTabla.setVisible(true);
-//        escritorio.add(JTabla);
-//        escritorio.moveToFront(JTabla); 
+        
+       escritorio.removeAll();
+       escritorio.repaint();
+       vistaBusqueda JTabla = new vistaBusqueda();
+        JTabla.setVisible(true);
+       escritorio.add(JTabla);
+       escritorio.moveToFront(JTabla); 
 
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -390,14 +366,7 @@ public class Formulariodecontacto extends javax.swing.JFrame {
     private javax.swing.JButton jbBuscar;
     // End of variables declaration//GEN-END:variables
 
-    private void mostrarContacto(Contacto c, Directorio d) {
-    jTFnombre.setText(c.getNombre());
-    jTFapellido.setText(c.getApellido());
-    jTFdireccion.setText(c.getDireccion());
-    jTFciudad.setText(c.getCiudad());
-    Long t = d.getTelefono(c);
-    jTFtelefono.setText(String.valueOf(t));
-    }
+   
     
     
 }

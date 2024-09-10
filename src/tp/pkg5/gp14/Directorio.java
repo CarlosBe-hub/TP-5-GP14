@@ -4,42 +4,50 @@
  */
 package tp.pkg5.gp14;
 
+import JFrame.Formulariodecontacto;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeSet;
 
 /**
  *
  * @author aguse
  */
 public class Directorio {
-    private final  TreeMap<Long, Contacto> contactos;
+    private TreeMap<Long, Contacto> contactos;
+    private ArrayList<Contacto> listaContactos;
+    private  TreeSet<Long> numeros;
 
     public Directorio() {
         contactos = new TreeMap<>();
+        listaContactos = new ArrayList<>();
+        numeros = new TreeSet<>();
     }
     
     public void agregarContacto(Long telefono, Contacto contacto){
         
-        contactos.put(telefono, contacto);
+        Formulariodecontacto.contactos.put(telefono, contacto);
         
     }
     
     public Contacto buscarContacto(Long telefono){
         
-        return contactos.get(telefono);
+        return Formulariodecontacto.contactos.get(telefono);
         
     }
+    
+    
     public Set<Long> buscarTelefono(String apellido){
-       Set<Long> numeros = new HashSet<>();
-       Iterator<Long> iterator = contactos.keySet().iterator();
+      
+       Iterator<Long> iterator = Formulariodecontacto.contactos.keySet().iterator();
 
        while(iterator.hasNext()){
        Long telefono = iterator.next();
-       if(contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
+       if(Formulariodecontacto.contactos.get(telefono).getApellido().equalsIgnoreCase(apellido))
            numeros.add(telefono);
        }
        return numeros;
@@ -47,8 +55,7 @@ public class Directorio {
 
 
     public ArrayList<Contacto> buscarContactos(String ciudad){
-        ArrayList<Contacto> listaContactos = new ArrayList<>();
-        Iterator<Contacto> iterator = contactos.values().iterator();
+        Iterator<Contacto> iterator = Formulariodecontacto.contactos.values().iterator();
         while(iterator.hasNext()    ){
         Contacto contacto = iterator.next();
             if(contacto.getCiudad().equalsIgnoreCase(ciudad))
@@ -60,11 +67,11 @@ public class Directorio {
 
     public void borrarContacto(Long telefono){
 
-        contactos.remove(telefono);
+        Formulariodecontacto.contactos.remove(telefono);
     }
     
     public Contacto buscarDni(int dni) {
-        for (Contacto c : contactos.values()) {
+        for (Contacto c : Formulariodecontacto.contactos.values()) {
             if (c.getDni() == dni) {
                 return c;
             }
