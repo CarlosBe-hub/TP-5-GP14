@@ -211,7 +211,7 @@ public class Agendadecontactos extends javax.swing.JInternalFrame {
 
     private void jBexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBexitActionPerformed
         this.setVisible(false);
-       JOptionPane.showMessageDialog(null, "Se cerro Sesión"); 
+       JOptionPane.showMessageDialog(null, "Saliendo.."); 
     }//GEN-LAST:event_jBexitActionPerformed
 
     private void jBnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnewActionPerformed
@@ -226,6 +226,7 @@ public class Agendadecontactos extends javax.swing.JInternalFrame {
     
     
     private void jBsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsaveActionPerformed
+        try{
         int dni = Integer.parseInt(jTFdni.getText());
         String nombre = jTFnombre.getText();
         String apellido = jTFapellido.getText();
@@ -235,14 +236,35 @@ public class Agendadecontactos extends javax.swing.JInternalFrame {
         
        Contacto Agendadecontactos = new Contacto(dni, nombre, apellido, ciudad, direccion);
        Directorio.agregarContacto(telefono, Agendadecontactos);
+       JOptionPane.showMessageDialog(this, "Contacto guardado exitosamente!");
+        
+        } catch(NumberFormatException e){
+            
+            JOptionPane.showMessageDialog(this, "Error en el formato de DNI o Telefono, ¡Por favor ingrese números validos!","ERROR", JOptionPane.ERROR_MESSAGE);
+        
+        } catch(Exception e){
+        JOptionPane.showMessageDialog(this, "Surgio un error inesperado");
+        }
         
             
     }//GEN-LAST:event_jBsaveActionPerformed
 
     private void jBdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBdeleteActionPerformed
-
-long telefono = Long.parseLong(jTFtelefono.getText()); 
+            
+        try{
+                 long telefono = Long.parseLong(jTFtelefono.getText()); 
                 Directorio.borrarContacto(telefono);
+                if( jTFtelefono.getText() != null){
+                JOptionPane.showMessageDialog(this, "Contacto Borrado Exitosamente!");
+                }else{
+                JOptionPane.showMessageDialog(this, "Ingrese el numero de telefono que desea eliminar de la tabla..");
+                }
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Error en el formato de telefono, Por favor ingrese un numero valido y no deje el campo vacio", "ERROR", JOptionPane.ERROR_MESSAGE);
+        
+        }
+        
+        
     }//GEN-LAST:event_jBdeleteActionPerformed
 
 
