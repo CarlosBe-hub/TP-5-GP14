@@ -24,11 +24,11 @@ public class Directorioprincipal extends javax.swing.JFrame {
     public Directorioprincipal() {
         initComponents();
         Directorio contactos = new Directorio();
-        contactos.agregarContacto(2665121153L, new Contacto(15520451, "Jacinto", "Perez", "Caseros 200", "Buenos Aires"));
-        contactos.agregarContacto(2665154584L, new Contacto(27127089, "Pedro", "Mayor", "Av josefa 123", "Mendoza"));
-        contactos.agregarContacto(2664008530L, new Contacto(43551451, "Jose", "Martinez", "Mitre 154", "San Luis"));
-        contactos.agregarContacto(2664454810L, new Contacto(98154251, "Tomas", "Aguirre", "9 Julio", "Misiones"));
-        contactos.agregarContacto(2664550011L, new Contacto(39845123,"Lautaro", "Benitez", "Av Santo Ortiz","San Luis"));
+        contactos.agregarContacto(2665121153L, new Contacto(15520451, "Jacinto", "Perez", "Buenos Aires","Caseros 200"));
+        contactos.agregarContacto(2665154584L, new Contacto(27127089, "Pedro", "Mayor", "Mendoza","Av josefa 123"));
+        contactos.agregarContacto(2664008530L, new Contacto(43551451, "Jose", "Martinez", "San Luis","Mitre 154"));
+        contactos.agregarContacto(2664454810L, new Contacto(98154251, "Tomas", "Aguirre", "Misiones","9 Julio"));
+        contactos.agregarContacto(2664550011L, new Contacto(39845123,"Lautaro", "Benitez","San Luis","Av Santo Ortiz"));
     }
 
     /**
@@ -62,16 +62,16 @@ public class Directorioprincipal extends javax.swing.JFrame {
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(299, 299, 299)
+                .addGap(473, 473, 473)
                 .addComponent(jLabel1)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(644, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(598, Short.MAX_VALUE))
+                .addContainerGap(608, Short.MAX_VALUE))
         );
 
         jMenucontactos.setText("Agenda contactos");
@@ -120,7 +120,7 @@ public class Directorioprincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();

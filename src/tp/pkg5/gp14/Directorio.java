@@ -79,7 +79,7 @@ public class Directorio {
         }
         return null;
     }
-    
+ /*   
     public Contacto buscarNombre(String nombre) {
     for (Contacto c : contactos.values()) {
         if (c.getNombre().equalsIgnoreCase(nombre)) {
@@ -88,7 +88,8 @@ public class Directorio {
     }
     return null;
     }
-    
+    */
+    /*
     public Long getTelefono(Contacto c) {
     for (Map.Entry<Long, Contacto> entry : contactos.entrySet()) {
         if (entry.getValue().equals(c)) {
@@ -96,7 +97,7 @@ public class Directorio {
         }
     }
     return null;
-    }
+    }*/
 
 }
 
