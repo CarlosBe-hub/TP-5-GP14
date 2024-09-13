@@ -21,7 +21,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenutablacontactos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tabla de busqueda"/>
+            <Property name="text" type="java.lang.String" value="Lista de Contactos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">

@@ -86,7 +86,7 @@ public class Directorioprincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenucontactos);
 
-        jMenutablacontactos.setText("Tabla de busqueda");
+        jMenutablacontactos.setText("Lista de Contactos");
 
         jMenuItem2.setText("Tabla");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
