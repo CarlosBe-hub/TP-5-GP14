@@ -71,7 +71,7 @@ public class Directorioprincipal extends javax.swing.JFrame {
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(608, Short.MAX_VALUE))
+                .addContainerGap(739, Short.MAX_VALUE))
         );
 
         jMenucontactos.setText("Agenda contactos");

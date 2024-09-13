@@ -37,9 +37,6 @@ public class vistaBusqueda extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTabla = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jcbFiltro = new javax.swing.JComboBox<>();
-        jbBuscar = new javax.swing.JButton();
-        txtBuscar = new java.awt.TextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,18 +63,7 @@ public class vistaBusqueda extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtTabla);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Buscar");
-
-        jcbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Ciudad", "Telefono" }));
-
-        jbBuscar.setText("BUSCAR");
-        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbBuscarActionPerformed(evt);
-            }
-        });
-
-        txtBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jLabel1.setText("Lista de los contactos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,86 +74,34 @@ public class vistaBusqueda extends javax.swing.JInternalFrame {
                 .addGap(67, 67, 67))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jcbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jbBuscar)
-                .addGap(77, 77, 77))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(301, 301, 301)
+                .addGap(226, 226, 226)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(12, 12, 12)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbBuscar))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(119, 119, 119))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        
-        String filtro = jcbFiltro.getSelectedItem().toString();
-        
-        String busqueda = txtBuscar.getText().toLowerCase();
-        
-        DefaultTableModel modeloFiltrado = new DefaultTableModel();
-        
-        modeloFiltrado.setColumnIdentifiers(new String[]{"DNI", "Nombre", "Apellido", "Dirección", "Ciudad", "Telefono"});
-        
-        for(Map.Entry<Long, Contacto> entry : contactos.entrySet()){
-            
-            Contacto contacto = entry.getValue();
-            boolean coincide = false;
-            
-            switch(filtro){
-                case "Nombre":
-                        coincide = contacto.getNombre().toLowerCase().contains(busqueda); break;
-                        
-                case "Ciudad":
-                        coincide = contacto.getCiudad().toLowerCase().contains(busqueda); break;
-                        
-                case "Telefono":
-                        coincide = entry.getKey().toString().contains(busqueda); break;
-                        
-            }
-            if(coincide){
-                
-                modeloFiltrado.addRow(new Object[ ] {contacto.getDni(), contacto.getNombre(), contacto.getApellido(), contacto.getDireccion(), contacto.getCiudad(), entry.getKey()});
-                
-            }
-        }
-        jtTabla.setModel(modeloFiltrado);
-    }//GEN-LAST:event_jbBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbBuscar;
-    private javax.swing.JComboBox<String> jcbFiltro;
     private javax.swing.JTable jtTabla;
-    private java.awt.TextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
     public void mostrarDatos(){
